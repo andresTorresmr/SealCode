@@ -3,7 +3,7 @@ import Sealy from "../assets/foca.webp";
 ---
 
 <div
-  class="min-h-[70vh] w-full flex flex-col justify-center items-center text-center bg-white overflow-hidden relative"
+  class="min-h-[60vh] w-full flex flex-col justify-center items-center text-center overflow-hidden relative"
 >
   <!-- <div
     class="bg-gradient-to-r from-[#f9bd71] via-[#f793ab] to-[#f782ed] absolute inset-0 h-32 blur-xl -mt-10"
@@ -12,7 +12,7 @@ import Sealy from "../assets/foca.webp";
 
   <div class="gradient w-full absolute inset-0"></div>
   <div
-    class="relative z-10 flex flex-col-reverse md:flex-row w-full max-w-4xl justify-between items-center px-8"
+    class="relative z-10 flex flex-col-reverse md:flex-row w-full max-w-6xl justify-between items-center px-8"
   >
     <!-- contenido -->
     <div class="text-start space-y-4">
@@ -25,17 +25,19 @@ import Sealy from "../assets/foca.webp";
         alto rendimiento que te hacen vender más, sin que tengas que preocuparte
         por el código.
       </p>
-      <div class="flex flex-row max-w-md gap-4">
-        <button class="bg-[#f18b34] text-white px-4 py-2 rounded-lg"
+      <div class="flex flex-row max-w-md gap-4 font-semibold">
+        <button
+          class="bg-highlight text-white px-4 py-2 rounded-lg hover:scale-105 hover:cursor-pointer transition-all duration-200"
           >Quiero mi web</button
         >
 
-        <button class="bg-black text-white px-4 py-2 rounded-lg"
+        <button
+          class="bg-transparent border-2 border-primary hover:bg-primary hover:text-white hover:scale-105 hover:cursor-pointer transition-all duration-200 px-4 py-2 rounded-lg"
           >Quiero mi web</button
         >
       </div>
     </div>
-    <img src={Sealy.src} alt="sealy" class="w-32 h-auto aspect-auto" />
+    <img src={Sealy.src} alt="sealy" class="w-[32vw] h-auto aspect-auto" />
   </div>
 </div>
 
@@ -48,7 +50,8 @@ import Sealy from "../assets/foca.webp";
         rgba(255, 255, 255, 0.9) 12%,
         rgba(255, 255, 255, 1) 50%
       ),
-      linear-gradient(90deg, #c9f4ce 0%, #98dee4 50%, #98eef3 100%);
+      linear-gradient(90deg, #62f473 0%, #34f7d3 50%, #11e9f5 100%);
+    /* linear-gradient(90deg, #62f473 0%, #98e4d6 50%, #11e9f5 100%); */
     height: 100vh;
   }
 </style>
