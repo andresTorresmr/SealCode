@@ -1,5 +1,5 @@
 ---
-import Sealy from "../assets/foca.webp";
+import Approved from "../assets/approved.webp";
 
 const problemas = [
   {
@@ -21,13 +21,8 @@ const problemas = [
 ---
 
 <div
-  class="min-h-[70vh] w-full flex flex-col justify-start pt-40 items-center text-center bg-white overflow-hidden relative"
+  class="h-auto pb-20 w-full flex flex-col justify-start pt-20 items-center text-center bg-white overflow-hidden relative"
 >
-  <!-- <div
-    class="bg-gradient-to-r from-[#f9bd71] via-[#f793ab] to-[#f782ed] absolute inset-0 h-32 blur-xl -mt-10"
-  >
-  </div> -->
-
   <div class="flex flex-col w-full max-w-6xl items-center px-8">
     <!-- contenido -->
     <div class="text-start space-y-4 text-xl">
@@ -37,17 +32,17 @@ const problemas = [
           >problemas?</span
         >
       </h2>
-      <p class="mb-10 text-center text-gray-600">
+      <p class="mb-10 text-center text-2xl text-gray-600">
         No estás solo. A muchos negocios les pasa
       </p>
-      <ul class="space-y-4 w-fit mx-auto">
+      <ul class="space-y-10 w-fit mx-auto">
         {
           problemas.map((problema) => (
             <li class="flex flex-row items-start justify-start  gap-4">
               <span class="inline-block w-5 h-5 rounded-full bg-highlight mt-1.25 flex-none" />
               <div>
                 <h4 class="font-semibold ">
-                  {problema.title}{" "}
+                  {problema.title}
                   <span class=" text-highlight">{problema.highlightWord}</span>
                 </h4>
                 <p class=" font-normal text-lg">{problema.content}</p>
@@ -56,22 +51,25 @@ const problemas = [
           ))
         }
       </ul>
-      <p class="text-center font-semibold text-3xl">Respira tranquilo.</p>
-      <h3 class="text-4xl font-bold text-center mt-10 my-5">
+      <p class="text-center font-semibold text-3xl mt-10">Respira tranquilo.</p>
+      <h3 class="text-4xl font-bold text-center my-10">
         Nosotros nos encargamos de todo
       </h3>
-      <p class="max-w-2xl mx-auto">
+      <p class="max-w-2xl mx-auto text-center text-2xl">
         En <b>SealCode</b> diseñamos y desarrollamos sitios web rápidos, optimizados
         y pensados para veder.
       </p>
-      <p class="max-w-2xl mx-auto">
+      <p class="max-w-2xl mx-auto text-center text-2xl">
         Tú enfócate en tu negocio, nosotros nos encargamos del resto.
       </p>
     </div>
-    <div class="grid grid-cols-2 w-full md:max-w-6xl justify-center">
+    <div
+      class="flex flex-row mx-auto w-fit md:max-w-6xl items-center gap-4 mt-10"
+    >
+      <img src={Approved.src} alt="Approved" class="w-20 h-20 aspect-auto" />
       <div class="flex flex-col space-y-0 text-start">
-        <p class="text-xl font-bold -mb-2">SealCode</p>
-        <p>Approved</p>
+        <p class="text-2xl font-bold -mb-2">SealCode</p>
+        <p class="text-xl">Approved</p>
       </div>
     </div>
   </div>

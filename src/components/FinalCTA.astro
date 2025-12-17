@@ -1,0 +1,100 @@
+---
+import Image from "astro/components/Image.astro";
+import sealy from "../assets/Sealy.webp";
+---
+
+<div
+  id="contacto"
+  class="h-auto pb-20 w-full flex flex-col justify-start pt-0 items-center text-center bg-white overflow-hidden relative"
+>
+  <!-- <div class="flex flex-col w-full max-w-6xl items-center px-8"> -->
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 w-full max-w-6xl items-center px-8 gap-4"
+  >
+    <!-- contenido -->
+    <div class="text-start space-y-4 text-xl">
+      <h2 class="text-5xl font-bold text-center mb-5">
+        ¿Listo para Ponerle el Sello de Éxito a tu Negocio?
+      </h2>
+      <div class="h-0.5 w-64 mx-auto bg-highlight"></div>
+
+      <p class="text-xl max-w-2xl mx-auto mt-10">
+        Deja de perder clientes con una web que no funciona. Es hora de tener
+        una herramienta de ventas profesional 24/7.
+      </p>
+      <Image
+        src={sealy}
+        alt="Sealy Logo"
+        class="w-64 md:w-96 block md:h-fit mx-auto flex-none aspect-auto mt-6"
+      />
+    </div>
+
+    <form
+      id="contact"
+      class="flex flex-col gap-4 h-full w-full md:w-xl max-w-4xl items-center bg-linear-45 from-[#006591] to-highlight p-6 rounded-lg font-semibold"
+    >
+      <div class="flex flex-col w-full text-white items-start">
+        <label for="nombre" class="ml-4">Nombre</label>
+        <input
+          type="text"
+          name="nombre"
+          id="nombre"
+          placeholder=""
+          class="border border-gray-300 backdrop-blur-2xl bg-gray-100/50 rounded-full px-4 py-2 w-full"
+        />
+      </div>
+      <div class="flex flex-col w-full text-white items-start">
+        <label for="email" class="ml-4">Correo de contacto</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder=""
+          class="border border-gray-300 backdrop-blur-2xl bg-gray-100/50 rounded-full px-4 py-2 w-full"
+        />
+      </div>
+      <div class="flex flex-col w-full text-white items-start">
+        <label for="telefono" class="ml-4">Whatsapp</label>
+        <input
+          type="text"
+          name="telefono"
+          id="telefono"
+          placeholder=""
+          class="border border-gray-300 backdrop-blur-2xl bg-gray-100/50 rounded-full px-4 py-2 w-full"
+        />
+      </div>
+      <div class="flex flex-col w-full text-white items-start">
+        <label for="comentarios" class="ml-4">Cuéntanos tu idea</label>
+
+        <textarea
+          name="comentarios"
+          id="comentarios"
+          rows="8"
+          class="border border-gray-300 backdrop-blur-2xl bg-gray-100/50 rounded-2xl px-4 py-2 w-full mr-4"
+        ></textarea>
+      </div>
+
+      <button
+        type="submit"
+        class="bg-primary w-full py-2 text-white font-bold px-4 rounded hover:bg-highlight-dark transition duration-300 hover:cursor-pointer hover:scale-105 hover:shadow-xl"
+      >
+        Enviar
+      </button>
+    </form>
+  </div>
+</div>
+
+<script>
+  import { actions } from "astro:actions";
+
+  const form = document.getElementById("contact");
+
+  form!.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const { data, error } = await actions.send(
+      new FormData(form as HTMLFormElement)
+    );
+    console.log(data, error);
+    console.log("¡Gracias por contactarnos! Te responderemos pronto.");
+  });
+</script>

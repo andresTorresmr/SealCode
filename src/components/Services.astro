@@ -1,0 +1,47 @@
+---
+const services = [
+  {
+    title: "Diseño Web Personalizado",
+    description:
+      "Creamos diseños únicos y atractivos que reflejan la identidad de tu marca y capturan la atención de tus visitantes.",
+  },
+  {
+    title: "Desarrollo Web",
+    description:
+      "Utilizamos las últimas tecnologías para construir interfaces de usuario rápidas, responsivas y fáciles de usar.",
+  },
+  {
+    title: "Optimización SEO",
+    description:
+      "Mejoramos la visibilidad de tu sitio web en los motores de búsqueda para atraer más tráfico orgánico y potenciales clientes.",
+  },
+  {
+    title: "Mantenimiento y Soporte",
+    description:
+      "Ofrecemos servicios continuos de mantenimiento y soporte para asegurar que tu sitio web funcione sin problemas y esté siempre actualizado.",
+  },
+];
+---
+
+<div
+  class="h-auto pb-30 w-full flex flex-col justify-start pt-40 items-center text-center bg-white overflow-hidden relative"
+>
+  <div class="flex flex-col w-full max-w-6xl items-center px-8">
+    <!-- contenido -->
+    <div class="text-start space-y-4 text-xl">
+      <h2 class="text-5xl font-bold text-center mb-5">Nuestros Servicios</h2>
+      <div class="h-0.5 w-64 mx-auto bg-highlight"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+        {
+          services.map((service) => (
+            <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:scale-105 transition-all duration-200">
+              <h3 class="text-xl font-bold mb-2">{service.title}</h3>
+              <p class="text-gray-600">{service.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>

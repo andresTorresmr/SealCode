@@ -1,0 +1,52 @@
+---
+const processSteps = [
+  {
+    title: "Platicamos",
+    description: "Conocemos tu negocio y lo que necesitas.",
+  },
+  {
+    title: "Diseñamos",
+    description: "Creamos una propuesta clara y atractiva.",
+  },
+  {
+    title: "Desarrollamos",
+    description: "Construimos tu web optimizada y funcional.",
+  },
+  {
+    title: "Publicamos",
+    description: "La lanzamos y te explicamos cómo usarla.",
+  },
+];
+---
+
+<div
+  class="h-auto pb-20 w-full flex flex-col justify-start pt-0 items-center text-center bg-white overflow-hidden relative"
+>
+  <div class="flex flex-col w-full max-w-6xl items-center px-8">
+    <!-- contenido -->
+    <div class="text-start space-y-4 text-xl">
+      <h2 class="text-5xl font-bold text-center mb-5">
+        Así de fácil es trabajar con SealCode
+      </h2>
+      <div class="h-0.5 w-64 mx-auto bg-highlight"></div>
+      <ul class="mt-10 space-y-10 w-fit mx-auto">
+        {
+          processSteps.map((step, index) => (
+            <li class="flex flex-row items-center justify-start gap-4">
+              <span class="inline-block text-highlight font-bold mt-0 flex-none text-4xl">
+                {index + 1}.
+              </span>
+              <div>
+                <h4 class="font-semibold ">{step.title}</h4>
+                <p class=" font-normal text-lg">{step.description}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="text-center mt-10">
+        Sin tecnicismos. <span class="border-b-2">Sin complicaciones</span>.
+      </p>
+    </div>
+  </div>
+</div>

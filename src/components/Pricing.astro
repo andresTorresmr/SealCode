@@ -1,0 +1,70 @@
+---
+import { Check } from "@lucide/astro";
+
+const plans = [
+  {
+    title: "Starter",
+    description: "Ideal para emprendedores",
+    features: [
+      "Landing page",
+      "Diseño responsivo",
+      "Fornmulario de contacto",
+      "Botón de Whatsapp",
+      "SEO básico",
+      "1 mes de soporte gratis",
+    ],
+  },
+  {
+    title: "Business",
+    description: "Para negocios en crecimiento",
+    features: [
+      "Sitio multipágina (Hasta 5 páginas)",
+      "Panel de administración",
+      "Galería de productos/servicios",
+      "SEO avanzado",
+      "Google Analytics",
+      "3 meses de soporte",
+    ],
+  },
+];
+---
+
+<div
+  class="h-auto pb-20 w-full flex flex-col justify-start pt-0 items-center text-center bg-white overflow-hidden relative"
+>
+  <div class="flex flex-col w-full max-w-6xl items-center px-8">
+    <!-- contenido -->
+    <div class="text-start space-y-4 text-xl">
+      <h2 class="text-5xl font-bold text-center mb-5">
+        Planes claros, sin sorpresas
+      </h2>
+      <div class="h-0.5 w-64 mx-auto bg-highlight"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+        {
+          plans.map((plan) => (
+            <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:scale-105 transition-all duration-200">
+              <h3 class="text-xl font-bold mb-2 text-center">{plan.title}</h3>
+              <p class="text-gray-600 mb-4 text-center">{plan.description}</p>
+              <div class="h-0.5 w-full my-5 mx-auto bg-highlight" />
+              <ul class="mb-4 space-y-6 ">
+                {plan.features.map((feature) => (
+                  <li class="flex items-center">
+                    {/* <span class="inline-block w-4 h-4  bg-highlight rounded-full flex-none p-0.5"> */}
+                    <Check class="inline-block flex-none w-5 h-5 text-white bg-highlight mr-2 p-px rounded-full" />
+                    {/* </span> */}
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* <button class="bg-highlight mx-auto w-fit block text-white px-4 py-2 rounded hover:bg-highlight-dark transition">
+                Elegir Plan
+              </button> */}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>
