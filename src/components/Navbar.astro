@@ -38,8 +38,6 @@ const links = [
 
     if (!header || !trigger) return;
 
-    const mqMobile = window.matchMedia("(max-width: 768px)");
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         header.classList.toggle("scrolled", !entry.isIntersecting);

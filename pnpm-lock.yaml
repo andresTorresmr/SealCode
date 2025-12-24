@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@astracms/astro-loader':
+        specifier: ^1.0.3
+        version: 1.0.3(astro@5.16.6(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.5)(typescript@5.9.3))
       '@astrojs/node':
         specifier: ^9.5.1
         version: 9.5.1(astro@5.16.6(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.5)(typescript@5.9.3))
@@ -28,6 +31,14 @@ importers:
         version: 4.1.18
 
 packages:
+
+  '@astracms/astro-loader@1.0.3':
+    resolution: {integrity: sha512-KiSD/iLBX8jT1K/K0lz94EniDKYFKVGD/fsCkYTgS2sOR/RoHCz5g/xFthnTXWYsrcEr3VATGC5/OWLaGAa22g==}
+    peerDependencies:
+      astro: ^5.0.0
+
+  '@astracms/core@1.0.3':
+    resolution: {integrity: sha512-TAoKJFVwtQU1dLYYFumleKtYpEVBv/x+sSvQscp+EFqLOXU46I0f2tRE8FU9/IJ0nkhwWOQHmqoo+jW5xbvvfg==}
 
   '@astrojs/compiler@2.13.0':
     resolution: {integrity: sha512-mqVORhUJViA28fwHYaWmsXSzLO9osbdZ5ImUfxBarqsYdMlPbqAqGJCxsNzvppp1BEzc1mJNjOVvQqeDN8Vspw==}
@@ -1824,6 +1835,16 @@ packages:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
 snapshots:
+
+  '@astracms/astro-loader@1.0.3(astro@5.16.6(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.5)(typescript@5.9.3))':
+    dependencies:
+      '@astracms/core': 1.0.3
+      astro: 5.16.6(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.5)(typescript@5.9.3)
+      zod: 3.25.76
+
+  '@astracms/core@1.0.3':
+    dependencies:
+      zod: 3.25.76
 
   '@astrojs/compiler@2.13.0': {}
 
