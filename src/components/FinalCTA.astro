@@ -5,7 +5,7 @@ import sealy from "../assets/Sealy.webp";
 
 <div
   id="contacto"
-  class="h-auto pb-20 w-full flex flex-col justify-start pt-0 items-center text-center bg-white overflow-hidden relative"
+  class="h-auto pb-30 w-full flex flex-col justify-start pt-20 items-center text-center bg-white overflow-hidden relative"
 >
   <!-- <div class="flex flex-col w-full max-w-6xl items-center px-8"> -->
   <div
@@ -19,8 +19,8 @@ import sealy from "../assets/Sealy.webp";
       <div class="h-0.5 w-64 mx-auto bg-highlight"></div>
 
       <p class="text-xl max-w-2xl mx-auto mt-10">
-        Deja de perder clientes con una web que no funciona. Es hora de tener
-        una herramienta de ventas profesional 24/7.
+        Una buena página web puede marcar la diferencia entre que te comparen o
+        <span class="border-b-2">te elijan</span>.
       </p>
       <Image
         src={sealy}
@@ -31,46 +31,50 @@ import sealy from "../assets/Sealy.webp";
 
     <form
       id="contact"
-      class="flex flex-col gap-4 h-full w-full md:w-xl max-w-4xl items-center bg-linear-45 from-[#006591] to-highlight p-6 rounded-lg font-semibold"
+      class="flex flex-col gap-4 h-full w-full max-w-4xl items-center bg-linear-45 from-[#006591] to-highlight p-6 rounded-lg font-semibold"
     >
-      <div class="flex flex-col w-full text-white items-start">
-        <label for="nombre" class="ml-4">Nombre</label>
+      <div class="flex flex-col w-full items-start">
+        <label for="nombre" class="ml-4 text-white mb-1">Nombre</label>
         <input
           type="text"
           name="nombre"
           id="nombre"
           placeholder=""
-          class="border border-gray-300 backdrop-blur-2xl bg-gray-100/50 rounded-full px-4 py-2 w-full"
+          class="border border-gray-300 backdrop-blur-2xl bg-[#e8f0fe]/80 rounded-full px-4 py-2 w-full"
         />
       </div>
-      <div class="flex flex-col w-full text-white items-start">
-        <label for="email" class="ml-4">Correo de contacto</label>
+      <div class="flex flex-col w-full items-start">
+        <label for="email" class="ml-4 text-white mb-1"
+          >Correo de contacto</label
+        >
         <input
           type="email"
           name="email"
           id="email"
           placeholder=""
-          class="border border-gray-300 backdrop-blur-2xl bg-gray-100/50 rounded-full px-4 py-2 w-full"
+          class="border border-gray-300 backdrop-blur-2xl bg-[#e8f0fe]/80 rounded-full px-4 py-2 w-full"
         />
       </div>
-      <div class="flex flex-col w-full text-white items-start">
-        <label for="telefono" class="ml-4">Whatsapp</label>
+      <div class="flex flex-col w-full items-start">
+        <label for="telefono" class="ml-4 text-white mb-1">Whatsapp</label>
         <input
           type="text"
           name="telefono"
           id="telefono"
           placeholder=""
-          class="border border-gray-300 backdrop-blur-2xl bg-gray-100/50 rounded-full px-4 py-2 w-full"
+          class="border border-gray-300 backdrop-blur-2xl bg-[#e8f0fe]/80 rounded-full px-4 py-2 w-full"
         />
       </div>
-      <div class="flex flex-col w-full text-white items-start">
-        <label for="comentarios" class="ml-4">Cuéntanos tu idea</label>
+      <div class="flex flex-col w-full items-start">
+        <label for="comentarios" class="ml-4 text-white mb-1"
+          >Cuéntanos sobre tu idea</label
+        >
 
         <textarea
           name="comentarios"
           id="comentarios"
           rows="8"
-          class="border border-gray-300 backdrop-blur-2xl bg-gray-100/50 rounded-2xl px-4 py-2 w-full mr-4"
+          class="border border-gray-300 backdrop-blur-2xl bg-[#e8f0fe]/80 rounded-2xl px-4 py-2 w-full mr-4"
         ></textarea>
       </div>
 

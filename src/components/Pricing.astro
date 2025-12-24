@@ -1,70 +1,147 @@
 ---
 import { Check } from "@lucide/astro";
 
-const plans = [
-  {
-    title: "Starter",
-    description: "Ideal para emprendedores",
-    features: [
-      "Landing page",
-      "Diseño responsivo",
-      "Fornmulario de contacto",
-      "Botón de Whatsapp",
-      "SEO básico",
-      "1 mes de soporte gratis",
-    ],
-  },
-  {
-    title: "Business",
-    description: "Para negocios en crecimiento",
-    features: [
-      "Sitio multipágina (Hasta 5 páginas)",
-      "Panel de administración",
-      "Galería de productos/servicios",
-      "SEO avanzado",
-      "Google Analytics",
-      "3 meses de soporte",
-    ],
-  },
-];
+// const plans = [
+//   {
+//     title: "Starter",
+//     description: "Ideal para emprendedores",
+//     features: [
+//       "Landing page",
+//       "Diseño responsivo",
+//       "Fornmulario de contacto",
+//       "Botón de Whatsapp",
+//       "SEO básico",
+//       "1 mes de soporte gratis",
+//     ],
+//   },
+//   {
+//     title: "Business",
+//     description: "Para negocios en crecimiento",
+//     features: [
+//       "Sitio multipágina (Hasta 5 páginas)",
+//       "Panel de administración",
+//       "Galería de productos/servicios",
+//       "SEO avanzado",
+//       "Google Analytics",
+//       "3 meses de soporte",
+//     ],
+//   },
+// ];
 ---
 
 <div
-  class="h-auto pb-20 w-full flex flex-col justify-start pt-0 items-center text-center bg-white overflow-hidden relative"
+  id="preguntas_frecuentes"
+  class="h-auto pb-30 w-full flex flex-col justify-start pt-20 items-center text-center bg-white overflow-hidden relative"
 >
   <div class="flex flex-col w-full max-w-6xl items-center px-8">
     <!-- contenido -->
     <div class="text-start space-y-4 text-xl">
-      <h2 class="text-5xl font-bold text-center mb-5">
-        Planes claros, sin sorpresas
-      </h2>
+      <h2 class="text-5xl font-bold text-center mb-5">Preguntas Frecuentes</h2>
       <div class="h-0.5 w-64 mx-auto bg-highlight"></div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
-        {
-          plans.map((plan) => (
-            <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:scale-105 transition-all duration-200">
-              <h3 class="text-xl font-bold mb-2 text-center">{plan.title}</h3>
-              <p class="text-gray-600 mb-4 text-center">{plan.description}</p>
-              <div class="h-0.5 w-full my-5 mx-auto bg-highlight" />
-              <ul class="mb-4 space-y-6 ">
-                {plan.features.map((feature) => (
-                  <li class="flex items-center">
-                    {/* <span class="inline-block w-4 h-4  bg-highlight rounded-full flex-none p-0.5"> */}
-                    <Check class="inline-block flex-none w-5 h-5 text-white bg-highlight mr-2 p-px rounded-full" />
-                    {/* </span> */}
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
+      <ul
+        class="accordion bg-gray-100 rounded-lg shadow-xl shadow-gray-100 p-0 w-md"
+      >
+        <!-- Duplicate this <li> as often as you want -->
+        <li class="cursor-pointer my-1 border-b-[1.5px] border-highlight">
+          <span
+            class="font-bold text-xl tracking-tight text-gray-500 flex flex-row justify-between items-center"
+          >
+            <p class="p-2">¿Es muy caro?</p>
+            <svg
+              class="text-highlight mr-1"
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="40"
+              fill="currentColor"
+              class="bi bi-arrow-down-short"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"
+              ></path>
+            </svg>
+          </span>
+          <div class="bg-white text-md p-2">
+            Hay opciones según tu etapa y necesidades.
+          </div>
+        </li>
 
-              {/* <button class="bg-highlight mx-auto w-fit block text-white px-4 py-2 rounded hover:bg-highlight-dark transition">
-                Elegir Plan
-              </button> */}
-            </div>
-          ))
-        }
-      </div>
+        <li class="cursor-pointer my-1 border-b-[1.5px] border-highlight">
+          <span
+            class="font-bold text-xl tracking-tight text-gray-500 flex flex-row justify-between items-center"
+          >
+            <p class="p-2">¿Necesito saber programación?</p>
+            <svg
+              class="text-highlight mr-1"
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="40"
+              fill="currentColor"
+              class="bi bi-arrow-down-short"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"
+              ></path>
+            </svg>
+          </span>
+          <div class="bg-white text-md p-2">
+            No. Tú te enfocas en tu negocio y nosotros en el resto.
+          </div>
+        </li>
+
+        <li class="cursor-pointer my-1 border-b-[1.5px] border-highlight">
+          <span
+            class="font-bold text-xl tracking-tight text-gray-500 flex flex-row justify-between items-center"
+          >
+            <p class="p-2">¿Cuánto tiempo tarda?</p>
+            <svg
+              class="text-highlight mr-1"
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="40"
+              fill="currentColor"
+              class="bi bi-arrow-down-short"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"
+              ></path>
+            </svg>
+          </span>
+          <div class="bg-white text-md p-2">
+            En pocos días puedes tener tu página lista.
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
+
+<style>
+  .accordion li > div {
+    display: none;
+  }
+
+  .accordion .flipY {
+    transform: rotate3d(1, 0, 0, 180deg);
+  }
+
+  .accordion svg {
+    transition: all 1s cubic-bezier(0, 0.5, 0, 1);
+  }
+</style>
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+  referrerpolicy="no-referrer"></script>
+<script is:inline>
+  $(document).on("click", ".accordion li", function (e) {
+    $(this).find("div").slideToggle();
+    $(this).find("svg").toggleClass("flipY");
+  });
+</script>

@@ -1,0 +1,29 @@
+---
+import { Image } from "astro:assets";
+import Sealy from "../../assets/Sealy-blog.webp";
+---
+
+<div
+  class="h-auto pb-30 w-full flex flex-col justify-start pt-20 items-center text-center bg-white overflow-hidden relative px-10"
+>
+  <div
+    class="w-full text-center py-10 flex flex-col justify-center items-center space-y-6"
+  >
+    <h1 class="text-5xl font-bold">
+      Tu negocio puede vender más! <br /> Aquí te explicamos cómo (sin código).
+    </h1>
+    <div class="flex flex-row items-center max-w-xl">
+      <Image
+        width={1000}
+        height={1000}
+        src={Sealy}
+        class="w-auto h-75 aspect-auto"
+        alt="Blog_Hero_Image"
+      />
+      <p class="text-xl text-gray-600">
+        Nuestra foca te guía con consejos simples para que tu página web trabaje
+        por ti.
+      </p>
+    </div>
+  </div>
+</div>

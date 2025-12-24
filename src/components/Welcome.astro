@@ -1,9 +1,13 @@
 ---
 import Sealy from "../assets/foca.webp";
+import { Image } from "astro:assets";
 ---
 
-<div
+<!-- <div
   class="min-h-[60vh] w-full flex flex-col justify-center items-center text-center overflow-hidden relative"
+> -->
+<div
+  class="h-auto pb-30 w-full flex flex-col justify-start pt-20 items-center text-center bg-white overflow-hidden relative"
 >
   <!-- <div
     class="bg-gradient-to-r from-[#f9bd71] via-[#f793ab] to-[#f782ed] absolute inset-0 h-32 blur-xl -mt-10"
@@ -16,28 +20,35 @@ import Sealy from "../assets/foca.webp";
   >
     <!-- contenido -->
     <div class="text-start space-y-4">
-      <h1 class="text-7xl font-bold text-start">SEAL<br />CODE</h1>
-      <h2 class="text-xl font-bold">Desarrollo y diseño web</h2>
+      <span class="text-7xl font-bold text-start">SEAL<br />CODE</span>
+      <h1 class="text-3xl font-bold">
+        Páginas web profesionales para pequeños negocios en México que quieren
+        vender más
+      </h1>
       <p class="max-w-md text-lg">
-        En SealCode, desarrollamos páginas web y tiendas online de alto
-        rendimiento que te hacen vender más, sin que tengas que preocuparte por
-        el código.En SealCode, desarrollamos páginas web y tiendas online de
-        alto rendimiento que te hacen vender más, sin que tengas que preocuparte
-        por el código.
+        Diseñamos páginas web claras, rápidas y enfocadas en generar clientes,
+        sin complicaciones técnicas ni lenguaje raro.
       </p>
       <div class="flex flex-row max-w-md gap-4 font-semibold">
         <button
           class="bg-highlight text-white px-4 py-2 rounded-lg hover:scale-105 hover:cursor-pointer transition-all duration-200"
-          >Quiero mi web</button
+          >Quiero mi página web!</button
         >
 
-        <button
+        <a
+          href="/#proceso"
           class="bg-transparent border-2 border-primary hover:bg-primary hover:text-white hover:scale-105 hover:cursor-pointer transition-all duration-200 px-4 py-2 rounded-lg"
-          >Quiero mi web</button
+          >¿Cómo funciona?</a
         >
       </div>
     </div>
-    <img src={Sealy.src} alt="sealy" class="w-[32vw] h-auto aspect-auto" />
+    <Image
+      width={500}
+      height={500}
+      src={Sealy}
+      alt="sealy"
+      class="w-[32vw] h-auto aspect-auto"
+    />
   </div>
 </div>
 
