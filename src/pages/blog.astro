@@ -1,8 +1,14 @@
 ---
 import BlogHero from "../components/blog/Blog-Hero.astro";
-import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import BlogLayout from "@layouts/BlogLayout.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/constants";
 ---
 
-<Layout title="Inicio">
+<BlogLayout
+  title={SITE_TITLE}
+  description={SITE_DESCRIPTION}
+  image="/og-blog.webp"
+>
   <BlogHero />
-</Layout>
+</BlogLayout>

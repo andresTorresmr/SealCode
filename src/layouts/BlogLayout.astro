@@ -1,5 +1,5 @@
-<!-- ---
-import Hero from "@components/blog/Post.astro";
+---
+import Hero from "@components/home/Hero.astro";
 import Layout from "./Layout.astro";
 import { getCollection } from "astro:content";
 import type { SEOProps } from "@/constants";
@@ -19,6 +19,5 @@ const { title, ...seoProps } = Astro.props;
 ---
 
 <Layout title={title} {...seoProps}>
-  <Hero posts={featuredPosts.slice(0, 2)} />
   <slot />
-</Layout> -->
+</Layout>

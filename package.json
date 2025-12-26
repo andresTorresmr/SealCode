@@ -12,8 +12,10 @@
     "@astracms/astro-loader": "^1.0.3",
     "@astrojs/node": "^9.5.1",
     "@lucide/astro": "^0.561.0",
+    "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.16.5",
+    "github-slugger": "^2.0.0",
     "resend": "^6.6.0",
     "tailwindcss": "^4.1.18"
   }

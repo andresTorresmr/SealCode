@@ -1,0 +1,41 @@
+---
+import type { CollectionEntry } from "astro:content";
+// import { getCollection, getEntries } from "astro:content";
+// import { getEntry } from "astro:content";
+interface Props {
+  post: CollectionEntry<"posts">;
+}
+
+const { post } = Astro.props;
+// const author = await getEntry(post.data.author);
+
+// Helper function to format dates
+const formatDate = (date: Date | undefined) => {
+  if (!date) return "Unknown date";
+  return new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  }).format(date);
+};
+---
+
+<div>
+  <p class="mb-2 text-sm text-gray-500">
+    {formatDate(post.data.publishedAt)}
+  </p>
+  <h5 class="text-sm font-medium text-gray-800 sm:text-base">
+    {post.data.title}
+  </h5>
+  <p class="mt-1 text-sm text-gray-500">
+    {post.data.description}
+  </p>
+  <p class="mt-1">
+    <a
+      class="text-sm text-gray-500 underline hover:text-gray-800 hover:decoration-2 focus:decoration-2 focus:outline-none"
+      href={`/post/${post.data.slug}`}
+    >
+      Continue reading
+    </a>
+  </p>
+</div>

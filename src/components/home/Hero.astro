@@ -2,7 +2,6 @@
 import HeroBlogCard from "@components/blog/HeroBlogCard.astro";
 
 import type { CollectionEntry } from "astro:content";
-// import PromoCard from "./PromoCard.astro";
 interface Props {
   posts: CollectionEntry<"posts">[];
 }
@@ -17,9 +16,6 @@ const { posts } = Astro.props;
     <!-- Hero Card -->
     {posts.map((post) => <HeroBlogCard post={post} />)}
     <!-- End Hero Card -->
-    <!-- Promo Card -->
-    <!-- <PromoCard /> -->
-    <!-- Promo End Card -->
   </div>
   <!-- End Grid -->
 </div>

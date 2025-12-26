@@ -7,7 +7,8 @@ export const SITE_NAME = "SealCode";
 export const SITE_TITLE = "SealCode - Creación de sitios web";
 export const SITE_DESCRIPTION =
     "Diseñamos páginas web claras, rápidas y enfocadas en generar clientes, sin complicaciones técnicas ni lenguaje raro.";
-export const SITE_URL = "https://sealcode.com.mx"; // Your site's base URL (no trailing slash)
+export const SITE_URL = "http://localhost:4321"; // Your site's base URL (no trailing slash)
+// export const SITE_URL = "https://sealcode.com.mx"; // Your site's base URL (no trailing slash)
 export const SITE_LANGUAGE = "es";
 
 // ======================

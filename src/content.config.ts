@@ -9,7 +9,7 @@ const posts = defineCollection({
     loader: postsLoader({
         ...config,
         format: "markdown",
-        // categories: ["blog"],
+        categories: ["blog"],
     }),
 });
 
