@@ -2,15 +2,13 @@
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 
-import node from "@astrojs/node";
+import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://sealcode.mx",
+  // site: "https://sealcode.mx",
   output: "server",
   vite: { plugins: [tailwindcss()] },
 
-  adapter: node({
-    mode: "standalone",
-  }),
+  adapter: vercel(),
 });
