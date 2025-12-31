@@ -8,24 +8,37 @@ export const server = {
     send: defineAction({
         accept: "form",
         input: z.object({
-            nombre: z.string().min(2),
-            email: z.string().email(),
-            telefono: z.string().min(10),
+            nombre: z.string({ message: "El nombre es requerido" }).min(2),
+            email: z.string({ message: "El correo es requerido" }).email(),
+            telefono: z.string({ message: "El teléfono es requerido" }).min(10, { message: "El teléfono debe tener al menos 10 caracteres" }),
             comentarios: z.string().optional(),
         }),
         handler: async ({ nombre, email, telefono, comentarios }) => {
             console.log("Sending email...");
             const { data, error } = await resend.emails.send({
-                from: "Contacto <contacto@updates.sealcode.com.mx>",
-                to: ["andrestorresm001@gmail.com"],
-                subject: "Solicitud de información",
-                html: `<p>Cliente: ${nombre}</p>
-                br/><p>Email: ${email}</p>
-                <br/>
-                <p>Teléfono: ${telefono}</p>
-                <br/>
-                <p>Comentarios: ${comentarios || "N/A"}</p>`,
+                from: "SealCode <contacto@sealcode.com.mx>",
+                to: [email],
+                template: {
+                    id: 'user_template',
+                    variables: {
+                        name: nombre
+                    },
+                },
             });
+
+            await resend.emails.send({
+                from: "SealCode <contacto@sealcode.com.mx>",
+                to: [import.meta.env.ADMIN_EMAIL],
+                template: {
+                    id: 'admin_template',
+                    variables: {
+                        name: nombre,
+                        client_email: email,
+                        phone: telefono,
+                        comments: comentarios!
+                    },
+                },
+            })
 
             if (error) {
                 throw new ActionError({
@@ -37,25 +50,5 @@ export const server = {
             return data;
         },
     }),
-    test: defineAction({
-        handler: async () => {
-            return { message: "Test action works!" };
-        },
-    }),
-    sendContact: defineAction({
-        accept: "form", // o "json"
-        input: z.object({
-            nombre: z.string().min(2),
-            email: z.string().email(),
-            telefono: z.string().min(10),
-            comentarios: z.string().optional(),
-        }),
-        handler: async ({ nombre, email, telefono, comentarios }) => {
-            // lógica del servidor
-            console.log({ nombre, email, telefono, comentarios });
-            return {
-                ok: true,
-            };
-        },
-    })
+
 };

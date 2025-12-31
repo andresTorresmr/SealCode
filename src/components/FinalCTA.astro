@@ -1,12 +1,14 @@
 ---
 import Image from "astro/components/Image.astro";
 import sealy from "../assets/Sealy.webp";
+import Modal from "./Modal.astro";
 ---
 
 <div
   id="contacto"
   class="h-auto pb-30 w-full flex flex-col justify-start pt-20 items-center text-center bg-white overflow-hidden relative"
 >
+  <Modal />
   <!-- <div class="flex flex-col w-full max-w-6xl items-center px-8"> -->
   <div
     class="grid grid-cols-1 md:grid-cols-2 w-full max-w-6xl items-center px-8 gap-4"
@@ -42,6 +44,7 @@ import sealy from "../assets/Sealy.webp";
           placeholder=""
           class="border border-gray-300 backdrop-blur-2xl bg-[#e8f0fe]/80 rounded-full px-4 py-2 w-full"
         />
+        <p id="error-nombre" class="text-red-300 text-sm mt-1 hidden"></p>
       </div>
       <div class="flex flex-col w-full items-start">
         <label for="email" class="ml-4 text-white mb-1"
@@ -54,6 +57,9 @@ import sealy from "../assets/Sealy.webp";
           placeholder=""
           class="border border-gray-300 backdrop-blur-2xl bg-[#e8f0fe]/80 rounded-full px-4 py-2 w-full"
         />
+        <p id="error-email" class="text-red-300 text-sm mt-1 hidden">
+          asdfasdf
+        </p>
       </div>
       <div class="flex flex-col w-full items-start">
         <label for="telefono" class="ml-4 text-white mb-1">Whatsapp</label>
@@ -64,6 +70,7 @@ import sealy from "../assets/Sealy.webp";
           placeholder=""
           class="border border-gray-300 backdrop-blur-2xl bg-[#e8f0fe]/80 rounded-full px-4 py-2 w-full"
         />
+        <p id="error-telefono" class="text-red-300 text-sm mt-1 hidden"></p>
       </div>
       <div class="flex flex-col w-full items-start">
         <label for="comentarios" class="ml-4 text-white mb-1"
@@ -90,15 +97,79 @@ import sealy from "../assets/Sealy.webp";
 
 <script>
   import { actions } from "astro:actions";
+  import type { ZodIssue } from "zod";
 
-  const form = document.getElementById("contact");
+  const form = document.querySelector<HTMLFormElement>("#contact");
+  const modal = document.getElementById("success-modal");
+  const closeModalBtn = document.getElementById("close-modal");
+
+  closeModalBtn?.addEventListener("click", () => {
+    modal?.classList.add("hidden");
+  });
+
+  if (!form) throw new Error("Form not found");
+
+  type FormFields = "nombre" | "email" | "telefono" | "comentarios";
+
+  const errorMap: Record<FormFields, HTMLElement | null> = {
+    nombre: document.getElementById("error-nombre"),
+    email: document.getElementById("error-email"),
+    telefono: document.getElementById("error-telefono"),
+    comentarios: document.getElementById("error-comentarios"),
+  };
+
+  function clearErrors() {
+    Object.values(errorMap).forEach((el) => {
+      if (!el) return;
+      el.textContent = "";
+      el.classList.add("hidden");
+    });
+  }
 
   form!.addEventListener("submit", async (event) => {
     event.preventDefault();
+
     const { data, error } = await actions.send(
       new FormData(form as HTMLFormElement)
     );
-    console.log(data, error);
-    console.log("¡Gracias por contactarnos! Te responderemos pronto.");
+
+    function mapZodIssues(issues: ZodIssue[]) {
+      const errors: Record<string, string[]> = {};
+
+      for (const issue of issues) {
+        const field = issue.path[0] as string;
+        errors[field] ??= [];
+        errors[field].push(issue.message);
+      }
+
+      return errors;
+    }
+    if (!error) {
+      clearErrors();
+    }
+
+    if (error) {
+      // ✅ AQUÍ: error es ZodIssue[]
+      if ("issues" in error && Array.isArray(error.issues)) {
+        const fieldErrors = mapZodIssues(error.issues);
+
+        for (const field in fieldErrors) {
+          const el = errorMap[field as FormFields];
+          if (el) {
+            el.textContent = fieldErrors[field][0];
+            el.classList.remove("hidden");
+          }
+        }
+        return;
+      }
+
+      // ❌ Error no esperado
+      alert(error.message ?? "Error inesperado");
+      return;
+    }
+
+    // éxito
+    form!.reset();
+    modal?.classList.remove("hidden");
   });
 </script>

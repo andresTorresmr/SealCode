@@ -11,13 +11,18 @@
   "dependencies": {
     "@astracms/astro-loader": "^1.0.3",
     "@astrojs/node": "^9.5.1",
+    "@astrojs/react": "^4.4.2",
     "@astrojs/vercel": "^9.0.2",
     "@lucide/astro": "^0.561.0",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.1.18",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
     "astro": "^5.16.5",
     "github-slugger": "^2.0.0",
+    "react-dom": "^19.2.3",
     "resend": "^6.6.0",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.1.18"
   }
 }

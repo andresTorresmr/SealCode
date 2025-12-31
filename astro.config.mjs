@@ -8,7 +8,7 @@ import vercel from "@astrojs/vercel";
 export default defineConfig({
   // site: "https://sealcode.mx",
   output: "server",
-  vite: { plugins: [tailwindcss()] },
 
+  vite: { plugins: [tailwindcss()] },
   adapter: vercel(),
 });
